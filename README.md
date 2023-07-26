@@ -3,6 +3,7 @@
 A simple password manager(with a password generator). wanted to get the hang of the tkinter module and decided to make this. 
 It also has a password generator inside it. 
 
-# Note:
+# Update:
 
-The credentials are saved into a .txt that will be generated after filling the fields once.
+The credentials are saved into a .json file.
+Also added a search button that will find stored passwords based on the website name
