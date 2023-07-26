@@ -42,20 +42,18 @@ def save_password_data():
     if len(website) == 0 or len(email) == 0 or len(password) == 0:
         messagebox.showinfo(title="Error", message="Please make sure to not leave any empty fields.")
     else:
-        is_ok = messagebox.askokcancel(title=website, message=f"These details are entered: \n Email: {email}\n Password: {password}\n are they correct?")
-        if is_ok: # If the fields are filled properly save them into the file
-            try: # If the json file doesn't exist we need to create it
-                with open("Password Data.json", "r") as data_file:
-                    # Reading old data
-                    data = json.load(data_file)
-            except FileNotFoundError: # Creating the json file
-                with open("Password Data.json", "w") as data_file:
-                    json.dump(data, data_file, indent=4)
-            else: # Updating the json file
-                data.update(new_data)
-                with open("Password Data.json", "w") as data_file:
-                    # Saving updated data
-                    json.dump(data, data_file, indent=4)
+        try: # If the json file doesn't exist we need to create it
+             with open("Password_Data.json", "r") as data_file:
+                # Reading old data
+                data = json.load(data_file)
+        except FileNotFoundError: # Creating the json file
+            with open("Password_Data.json", "w") as data_file:
+                json.dump(new_data, data_file, indent=4)
+        else: # Updating the json file
+            data.update(new_data)
+            with open("Password_Data.json", "w") as data_file:
+                # Saving updated data
+                json.dump(data, data_file, indent=4)
 
 # Search button function, finding passwords related to the website you're looking for
 
@@ -63,7 +61,7 @@ def save_password_data():
 def search_password():
     website = website_entry.get()
     try: # Loading the data
-        with open("Password Data.json") as data_file:
+        with open("Password_Data.json") as data_file:
             data = json.load(data_file)
     except FileNotFoundError: # Some basic error checking
         messagebox.showinfo(title="Error", message="No data file found")
