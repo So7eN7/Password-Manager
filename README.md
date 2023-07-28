@@ -5,6 +5,6 @@ It also has a password generator inside it.
 
 # Update:
 
-Simple background coloring.\n
+Simple background coloring.
 The credentials are saved into a .json file.
 Also added a search button that will find stored passwords based on the website name
