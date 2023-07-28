@@ -77,20 +77,25 @@ def search_password():
 
 
 window = Tk()
+BACKGROUND_COLOR = "#B1DDC6"
 window.title("Password Manager")
-window.config(padx=50, pady=50)
+window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
 # Setting the icon and the logo
 canvas = Canvas(height=400, width=400)
 logo_image = PhotoImage(file="icon.png")
 canvas.create_image(200, 200, image=logo_image)
+canvas.config(bg=BACKGROUND_COLOR, highlightthickness=0)
 canvas.grid(row=0, column=1)
 window.iconphoto(False, logo_image)
 # Text labels
 website_label = Label(text="Website:")
+website_label.config(bg=BACKGROUND_COLOR)
 website_label.grid(row=1, column=0)
 email_label = Label(text="Email/Username:")
+email_label.config(bg=BACKGROUND_COLOR)
 email_label.grid(row=2, column=0)
 password_label = Label(text="Password:")
+password_label.config(bg=BACKGROUND_COLOR)
 password_label.grid(row=3, column=0)
 # Text fields
 website_entry = Entry(width=35)
